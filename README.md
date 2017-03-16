@@ -91,7 +91,7 @@ python -m rasa_nlu.server -c config_server.json
 ### Making requests
 GET or Post. below is a GET request example
 ```
-http://localhost:5000/parse?q=<text>&model=<model>&token=<token>
+GET "http://localhost:5000/parse?q=<text>&model=<model>&token=<token>"
 ```
 
 ## Date parsing with Duckling-rest
@@ -108,7 +108,7 @@ Copy the contents of the script into lein
 sudo chmod 755 lein
 lein
 ```
-### duckling-rest rest up
+### duckling-rest sest up
 ```
 cd duckling-rest/duckling
 lein jar
