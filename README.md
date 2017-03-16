@@ -1,5 +1,4 @@
 ## RASA NLU Setup
-
 ### install pip if not installed
 ```
 sudo apt-get update
@@ -43,7 +42,7 @@ mkdir rasa
 You may use online rasa nlu trainer to create your training data here https://golastmile.github.io/rasa-nlu-trainer/
 After adding your data, download the training data from the trainer. save the file in data/rasa/ folder.
 ### rasa
-Create a config file called config_rasa.json with below contents
+Create a config file called config_rasa.json with below contents:
 ```
 {
   "backend": "mitie_sklearn",
@@ -53,8 +52,8 @@ Create a config file called config_rasa.json with below contents
 }
 ```
 ### wit
-Extract the data from your wit project and copy the expressions.json in data/wit folder
-Create a config file called config_wit.json with below contents
+Extract the data from your wit project and copy the expressions.json in data/wit folder.
+Create a config file called config_wit.json with below contents:
 ```
 {
   "backend": "mitie_sklearn",
@@ -71,7 +70,7 @@ python -m rasa_nlu.train -c config_<rasa/wit>.json
 After successful training, your models has been created in models folder for both the trainings
 
 ## Running Server
-Create a config file config_server.json with following contents
+Create a config file config_server.json with following contents:
 ```
 {
   "mitie_file": "/home<user>/rasa_nlu/mitie/total_word_feature_extractor.dat",
@@ -89,7 +88,7 @@ python -m rasa_nlu.server -c config_server.json
 ```
 
 ### Making requests
-GET or Post. below is a GET request example
+GET or Post. Below is a GET request example:
 ```
 GET "http://localhost:5000/parse?q=<text>&model=<model>&token=<token>"
 ```
@@ -100,7 +99,8 @@ GET "http://localhost:5000/parse?q=<text>&model=<model>&token=<token>"
 git clone https://github.com/ShubhankarS/duckling-rest.git
 ```
 Install java version 6 or later if not installed. Copy lein script from here https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
-Follow below steps to execute the script
+
+Follow below steps to execute the script:
 ```
 cd /bin
 sudo vi lein
@@ -108,7 +108,7 @@ Copy the contents of the script into lein
 sudo chmod 755 lein
 lein
 ```
-### duckling-rest sest up
+### duckling-rest set up
 ```
 cd duckling-rest/duckling
 lein jar
