@@ -78,7 +78,7 @@ Create a config file config_server.json with following contents
   "server_model_dirs": {
     "wit" : "/home<user>/rasa_nlu/models/wit/<model_folder>/"
   },
-  "token": "12345",
+  "token": <token>,
   "response_log":"/home<user>/rasa_nlu/logs/",
   "emulate" : "wit" 
 }
@@ -89,6 +89,35 @@ python -m rasa_nlu.server -c config_server.json
 ```
 
 ### Making requests
+GET or Post. below is a GET request example
 ```
-http://localhost:5000/parse?q=<text>&model=<model>&token=12345
+http://localhost:5000/parse?q=<text>&model=<model>&token=<token>
+```
+
+## Date parsing with Duckling-rest
+### clone the repo
+```
+git clone https://github.com/ShubhankarS/duckling-rest.git
+```
+Install java version 6 or later if not installed. Copy lein script from here https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+Follow below steps to execute the script
+```
+cd /bin
+sudo vi lein
+Copy the contents of the script into lein
+sudo chmod 755 lein
+lein
+```
+### duckling-rest rest up
+```
+cd duckling-rest/duckling
+lein jar
+lein install
+cd ..
+lein deps
+lein run
+```
+### Making requests
+```
+GET "http://localhost:5000/parse/time/:text"
 ```
